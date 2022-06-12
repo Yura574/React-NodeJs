@@ -16,16 +16,13 @@ class UserController {
     }
 
     async getUsers(req, res) {
-        const users = await db.query(`select *
-                                      from person`)
+        const users = await db.query(`select * from person`)
         res.json(users.rows)
     }
 
     async getOneUser(req, res) {
         const id = req.params.id
-        const user = await db.query(`select *
-                                     from person
-                                     where id = $1`, [id])
+        const user = await db.query(`select * from person where id = $1`, [id])
         res.json(user.rows[0])
     }
 
@@ -37,7 +34,7 @@ class UserController {
     }
 
     async deleteUser(req, res) {
-    const id = req.params.id
+        const id = req.params.id
         const deletedUser = await db.query(`delete from person where id = $1`, [id])
         res.json(deletedUser)
         console.log(id)
