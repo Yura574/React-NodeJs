@@ -1,4 +1,4 @@
-const db = require('../db')
+import db from '../db.js'
 
 class UserController {
     async createUser(req, res) {
@@ -42,4 +42,4 @@ class UserController {
 
 }
 
-module.exports = new UserController();
+export default new UserController()

@@ -1,5 +1,4 @@
-const db = require('../db')
-
+import db from '../db.js'
 
 class PostController {
     async getPost(req, res) {
@@ -31,4 +30,4 @@ class PostController {
     }
 }
 
-module.exports = new PostController()
+export default new PostController()

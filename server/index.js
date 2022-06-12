@@ -1,7 +1,8 @@
-const express = require('express')
-require('dotenv').config()
-const userRouter = require('./router/userRouter')
-const postRouter = require('./router/postRouter')
+import express from 'express'
+import userRouter from "./router/userRouter.js";
+import postRouter from './router/postRouter.js'
+// require('dotenv').config()
+
 
 const PORT = process.env.PORT || 5000
 
@@ -13,4 +14,12 @@ app.use('/api', postRouter)
 
 
 
-app.listen(PORT, () => console.log(`server started ${PORT} port`))
+
+async function startApp ()  {
+    try {
+        app.listen(PORT, () => console.log(`server started ${PORT} port`))
+    } catch (e) {
+        console.log(e)
+    }
+}
+startApp()
